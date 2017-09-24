@@ -111,10 +111,25 @@ myApp.controller('otherController', ['$scope', '$location', '$log', function($sc
 // Create our own custom service
 
 myApp.service('nameService', function() {
+    let songId; // get the song id from URL parameter, concatenate with the api calls.
     var self = this;
     this.userName = "username";
 
 })
+
+
+myApp.controller('songController', ['$scope', function($scope) {
+    
+    $scope.songs;
+    
+    this.getSongs = () => {
+        $http.get('http://localhost:3000/songs')
+            .success(function(res) {
+                $scope.songs = res;
+                console.log($scope.songs)
+        })
+    }
+}])
 
 myApp.controller('commentController', ['$scope', 'commentService', '$http', function($scope, commentService, $http) {
     $scope.comments;
@@ -132,10 +147,26 @@ myApp.controller('commentController', ['$scope', 'commentService', '$http', func
             .success((res) => {
                 console.log('New Comment Added')
                 this.getComments();
+                $scope.commentBox = '';
+        })
+    }
+    
+    $scope.deleteComment = (commentId) => {
+        $http.delete('http://localhost:3000/comments/' + commentId)
+            .success((res) => {
+                this.getComments();
         })
     }
     
     this.getComments();
+    
+    this.getSongs = () => {
+        $http.get('http://localhost:3000/songs')
+            .success(function(res) {
+                console.log(res)
+        })
+    }
+    this.getSongs();
         
 }]);
 

@@ -39,62 +39,8 @@
 
         <div class="container">
 
-            
-            <!-- Angular looks for a controller on "myApp" with the name "mainController" -->
-            
-			<div ng-controller="mainController">
-                
-                <div class="alert" ng-class="{'alert-warning': someVar.length < characters }" ng-if="someVar.length < characters">
-                    <p>Must be 5 characters!</p>
-                </div>
-                <hr />
-                
-                <p ng-show="returnBoolean()">Show if the function returns true</p>
-                
-                <hr />
-                <h1>{{ nameChange }} </h1>
-                <label>What is your twitter handle?</label>
-                <input type="text" ng-model="someVar" />
-                <hr>
-                <h1>twitter.com/{{ lowercasehandle() }}</h1>
-                
-                <h1 ng-class="classVar">Hello</h1>
-                
-                <ul>
-                    <li ng-repeat="rule in rules">
-                        {{ rule.rulename }}
-                    </li>
-                </ul>
-                
-                <hr />
-                
-                <button type="button" ng-click="alertClick()">Click me!</button>  
-                
-                <hr />
-                <ul>
-                    <li ng-repeat="users in currentUsers">
-                        {{ users.name }}
-                    </li>
-                </ul>
-                
-                <hr>
-                <a href="#/first-page">First Page</a>
-                <a href="#/second-page">Second Page</a>
-                <br>
-                <input type="text" ng-model="userName" />
-                <button ng-click="addUser()">Add User to Database</button>
-                
-                <h3>Users in the Database:</h3>
-                <ul>
-                    <li ng-repeat="users in usersInDatabase">
-                        {{ users.author }}
-                    </li>
-                </ul>
-            
-            </div>
-            
-                <div ng-view> <!-- will put the HTML that's defined in the template, into this spot -->
-
+            <div ng-controller="songController">
+            <h3>Songs</h3>
             </div>
             
             <hr>
@@ -109,6 +55,8 @@
                   </div>
                   <div class="panel-body">
                     {{ comment.body }}
+                    <br><br>
+                    <button class="btn btn-danger" ng-click="deleteComment(comment.id)">Delete</button>
                   </div>
                 </div>
                 </div>
