@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "username"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Some Comment",
+      "timeStamp": null,
+      "author": "Ryan"
+    },
+    {
+      "id": 2,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:06:20.799Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 3,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:06:26.632Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 4,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:11:37.603Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 5,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:11:55.474Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 6,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:12:00.811Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 7,
+      "body": "test",
+      "timeStamp": "2017-09-24T03:12:06.493Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 8,
+      "body": "",
+      "timeStamp": "2017-09-24T03:16:05.619Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 9,
+      "body": "",
+      "timeStamp": "2017-09-24T03:16:29.475Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 10,
+      "body": "hi",
+      "timeStamp": "2017-09-24T03:27:06.942Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 11,
+      "body": "Hello",
+      "timeStamp": "2017-09-24T03:28:10.101Z",
+      "author": "Ryan"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
