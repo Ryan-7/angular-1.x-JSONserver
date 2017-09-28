@@ -118,16 +118,54 @@ myApp.service('nameService', function() {
 })
 
 
-myApp.controller('songController', ['$scope', function($scope) {
+myApp.controller('songController', ['$scope', '$http', function($scope, $http) {
     
     $scope.songs;
+    $scope.currentSong;
+    $scope.currentSongUnsaved; 
+    $scope.editMode = false;
+    
     
     this.getSongs = () => {
         $http.get('http://localhost:3000/songs')
             .success(function(res) {
                 $scope.songs = res;
-                console.log($scope.songs)
         })
+    }
+    this.getSongs();
+
+    
+    $scope.viewSong = (index) => {
+        console.log(index)
+        $scope.currentSong = $scope.songs[index];
+
+    }
+    
+    $scope.deleteSong = (songId) => {
+        $http.delete('http://localhost:3000/songs/' + songId)
+            .success((res) => {
+                console.log('song deleted')
+                this.getSongs();
+                $scope.currentSong = null;
+        })
+    }
+    
+    $scope.editSong = (songId) => {
+        $scope.editMode = true;
+        $scope.currentSongUnsaved = Object.assign({}, $scope.currentSong);
+        console.log($scope.currentSongUnsaved)
+    }
+    
+    $scope.cancelEdit = () => {
+        console.log($scope.currentSongUnsaved)
+        // need that watch method 
+        $scope.$watch('$scope.currentSong', () => {
+            $scope.currentSong = Object.assign({}, $scope.currentSongUnsaved); 
+        })
+        
+        console.log($scope.currentSong)
+        $scope.editMode = false;
+        // watch apply for the currentSong variable ...?
     }
 }])
 
@@ -160,13 +198,6 @@ myApp.controller('commentController', ['$scope', 'commentService', '$http', func
     
     this.getComments();
     
-    this.getSongs = () => {
-        $http.get('http://localhost:3000/songs')
-            .success(function(res) {
-                console.log(res)
-        })
-    }
-    this.getSongs();
         
 }]);
 

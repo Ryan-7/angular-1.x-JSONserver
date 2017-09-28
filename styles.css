@@ -1,0 +1,11 @@
+.list-group:hover {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: lightblue;
+}
+
+.preserve-whitespace {
+    white-space: pre;
+}

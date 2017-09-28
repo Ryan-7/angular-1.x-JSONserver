@@ -7,12 +7,7 @@
 
         <!-- load bootstrap and fontawesome via CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-        <style>
-            html, body
-            {
-                font-size: 1.1em;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="styles.css">
         
         <!-- load angular via CDN -->
         <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
@@ -27,7 +22,7 @@
 			<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="/">AngularJS</a>
+					<a class="navbar-brand" href="/">Song Collaboration</a>
 				</div>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -40,13 +35,38 @@
         <div class="container">
 
             <div ng-controller="songController">
-            <h3>Songs</h3>
+            <h3>Songs List</h3>
+            <ul class="list-group" ng-repeat="song in songs">
+                <li class="list-group-item" ng-click="viewSong($index)">{{ song.title }}</li>
+            </ul>
+            <hr>
+            <div ng-if="currentSong">
+                <div ng-if="!editMode">
+                    <p>Title: {{ currentSong.title }}</p>
+                    <p class="preserve-whitespace">Lyrics: {{ currentSong.lyrics }}</p>
+                    <p>Notes: {{ currentSong.notes }}</p>
+                </div>
+                <div class="form-group" ng-if="editMode">
+                    <label>Title</label>
+                    <input type="text" class="form-control" ng-model="currentSong.title"/>
+                    <label>Lyrics</label>
+                    <textarea class="form-control">{{ currentSong.lyrics }}</textarea>
+                </div>
+                
+                
+                <button class="btn btn-success">Print PDF</button>
+                <button ng-if="!editMode" class="btn btn-primary" ng-click="editSong(currentSong.id)">Edit Song</button>
+                <button ng-if="editMode" class="btn btn-primary" ng-click="editSong(currentSong.id)">Save</button>
+                <button ng-if="!editMode" class="btn btn-danger" ng-click="deleteSong(currentSong.id)">Delete Song</button>
+                <button ng-if="editMode" class="btn btn-danger" ng-click="cancelEdit()">Cancel</button>
+            </div>
+                <hr>
+
             </div>
             
-            <hr>
             
             <div ng-controller="commentController">
-                <h3>Comment Area</h3>
+                <h3>Comment Area for Collaboration</h3>
                 
                 <div ng-repeat="comment in comments">
                 <div class="panel panel-default">
@@ -56,7 +76,9 @@
                   <div class="panel-body">
                     {{ comment.body }}
                     <br><br>
-                    <button class="btn btn-danger" ng-click="deleteComment(comment.id)">Delete</button>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteComment(comment.id)">Delete</button>
+                    <button class="btn btn-info btn-sm">Edit</button>
+                    <button class="btn btn-primary btn-sm">Attach MP3</button>
                   </div>
                 </div>
                 </div>

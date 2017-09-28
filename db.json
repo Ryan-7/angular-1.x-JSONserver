@@ -1,34 +1,6 @@
 {
   "songs": [
     {
-      "id": 1,
-      "title": "song 1",
-      "lyrics": "song lyrics",
-      "notes": "some notes",
-      "comments": [
-        {
-          "id": 1,
-          "num": 1,
-          "body": "Hello!!",
-          "timeStamp": "2017-09-24T04:06:53.720Z",
-          "author": "Ryan"
-        },
-        {
-          "id": 2,
-          "body": "",
-          "timeStamp": "2017-09-24T04:24:41.387Z",
-          "author": "Ryan"
-        },
-        {
-          "id": 3,
-          "body": "",
-          "timeStamp": "2017-09-24T04:24:45.608Z",
-          "author": "Ryan"
-        }
-      ],
-      "mp3": "no mp3"
-    },
-    {
       "id": 2,
       "title": "song 2",
       "lyrics": "song lyrics",
@@ -38,28 +10,34 @@
     {
       "id": 3,
       "title": "song 3",
-      "lyrics": "song lyrics",
+      "lyrics": "song lyrics \n more lyrics \n more lyrics",
       "notes": "some notes",
       "comments": []
     }
   ],
   "comments": [
     {
-      "id": 7,
-      "body": "Test",
-      "timeStamp": "2017-09-24T18:24:42.450Z",
-      "author": "Ryan"
-    },
-    {
-      "id": 8,
-      "body": "Sweet",
-      "timeStamp": "2017-09-24T18:25:26.010Z",
-      "author": "Ryan"
-    },
-    {
       "id": 9,
       "body": "I don't think that's a good idea.",
       "timeStamp": "2017-09-24T18:25:35.939Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 10,
+      "body": "Another comment.",
+      "timeStamp": "2017-09-25T02:37:03.569Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 11,
+      "body": "It's cool you can comment on the songs.",
+      "timeStamp": "2017-09-25T02:37:33.267Z",
+      "author": "Ryan"
+    },
+    {
+      "id": 12,
+      "body": "I like this one.",
+      "timeStamp": "2017-09-26T03:36:22.624Z",
       "author": "Ryan"
     }
   ],
